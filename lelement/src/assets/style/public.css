@@ -1,0 +1,45 @@
+/* 全局样式表 */
+html,
+body,
+.app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.el-card {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.el-input-group {
+  width: 560px;
+}
+.el-input {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.el-breadcrumb {
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+.el-pagination {
+  margin-top: 20px;
+}
+.el-dialog--center .el-dialog__body {
+  text-align: center;
+}
+.el-dialog {
+  width: 40% !important;
+}
+.el-scrollbar__wrap {
+  height: 300px;
+}
+.el-steps {
+  margin: 15px 0;
+}
+.el-step__title {
+  font-size: 13px;
+}
+/* 富文本编辑器区域 */
+.ql-editor {
+  min-height: 300px !important;
+}

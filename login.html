@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/zero.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery-1.8.3.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="login">
+            <form action="">
+                <p>后台管理系统</p>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <input type="text" name="" id="username" class="form-control" placeholder="请输入4-16位用户名">
+                    <i class="glyphicon glyphicon-ok" id="right"></i>
+                    <i class="glyphicon glyphicon-remove" id="wrong"></i>
+                </div>
+                <div class="form-group">
+                    <span class="glyphicon glyphicon-lock"></span>
+                    <input type="text" name="" id="pwd" class="form-control" placeholder="请输入密码">
+                    <i class="glyphicon glyphicon-ok" id="right"></i>
+                    <i class="glyphicon glyphicon-remove" id="wrong"></i>
+                    <div class="color">
+                        <button id="1" disabled style="background-color: red;">强</button>
+                        <button id="2" disabled style="background-color: #e0e966;">中</button>
+                        <button id="3" disabled style="background-color: rgba(25, 163, 25, 0.993);">弱</button>
+                    </div>
+                </div>
+                <input type="submit" value="登录">
+                <div class="zc"><a href="">去注册账号</a></div>
+            </form>
+        </div>
+    </div>
+    <script>
+        var right = $('#right')
+        var wrong = $('#wrong')
+        var username_reg = /^[a-zA-Z0-9_-]{4,16}$/;
+        var username = $('#username')
+        var pwd = $('#pwd')
+
+        username.keyup(function() {
+            if (username_reg.test($(this).val())) {
+                console.log(6666);
+                wrong.css("display", "none")
+                right.css("display", "block")
+            } else if ($(this).val() == "") {
+                right.css("display", "none")
+                wrong.css("display", "none")
+            } else {
+                right.css("display", "none")
+                wrong.css("display", "block")
+            }
+        })
+
+        // 密码强度验证
+        pwd.keyup(function() {
+            //密码中是否有数字,或者是字母,或者是特殊符号
+            if (/[0-9]/.test(pwd.val())) {
+                pwd.css('border-color', ' rgb(117, 233, 102)')
+                pwd.css('box-shadow', '0 0 8px rgba(117, 233, 102, 0.6)')
+            }
+            //判断密码中有没有字母
+            if (/[a-zA-Z]/.test(pwd.val())) {
+                pwd.css('border-color', ' rgb(231, 233, 102)')
+                pwd.css('box-shadow', ' 0 0 8px rgba(231, 233, 102, 0.6)')
+            }
+            //判断密码中有没有特殊符号
+            if (/[^0-9a-zA-Z_]/.test(pwd.val())) {
+                pwd.css('border-color', ' rgb(231, 88, 88)')
+                pwd.css('box-shadow', '0 0 8px rgba(231, 88, 88, 0.6)')
+            }
+            if ($(this).val() == "") {
+                pwd.css('border-color', ' #ededed')
+                pwd.css('box-shadow', 'none')
+                pwd.focus(function() {
+                    pwd.css('border-color', ' #66afe9')
+                    pwd.css('box-shadow', '  0 0 8px rgba(102,175,233,.6)')
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>
